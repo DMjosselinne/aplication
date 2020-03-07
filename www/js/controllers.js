@@ -1,12 +1,12 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyCtzD_d6_Rc0SN9NSqXTDcYnjxqcUEYW5g",
-    authDomain: "maxapp-df7ce.firebaseapp.com",
-    databaseURL: "https://maxapp-df7ce.firebaseio.com",
-    projectId: "maxapp-df7ce",
-    storageBucket: "maxapp-df7ce.appspot.com",
-    messagingSenderId: "883374548975",
-    appId: "1:883374548975:web:4f11acaedd03d0e3efb81a",
-    measurementId: "G-PN5E88EJ6Z"
+    apiKey: "AIzaSyCoPXbyVkcgNloGsOsrHaoQyfebCAiIWGM",
+    authDomain: "maxapp-83f89.firebaseapp.com",
+    databaseURL: "https://maxapp-83f89.firebaseio.com",
+    projectId: "maxapp-83f89",
+    storageBucket: "maxapp-83f89.appspot.com",
+    messagingSenderId: "130542620022",
+    appId: "1:130542620022:web:ab476af712b22651a17e57",
+    measurementId: "G-X6BY82MYF5"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
 .controller("registroCtrl",function($scope){
   $scope.obtener = function(user){
     firebase.auth().createUserWithEmailAndPassword(user.email, user.contra).then(function a(y){
-      swal("se creo coorectamente YEAH")
+      swal("BIENVENIDO A NUESTRA FAMILIA ヽ(^o^)ノ")
         firebase.database().ref("/usuario").set()({
           correo: user.email
         })
@@ -42,7 +42,42 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, $rootScope){
+  $rootScope.categorias = [
+    {
+      nombrecategorias: "audio",
+      imagen:"img/imagen1.jpg"
+    },
+    {
+      nombrecategorias: "TV y Videos",
+      imagen: "img/juego.jpg"
+    },
+    {
+      nombrecategorias: "celulares",
+      imagen: "img/celular.jpg"
+    },
+    {
+      nombrecategorias: "computadoras y Tablets",
+      imagen: "img/computadoras.png"
+    },
+    {
+      nombrecategorias: "Cámaras y Drones",
+      imagen:""
+    },
+    {
+      nombrecategorias: "Prendas electronicas",
+      imagen: ""
+    },
+    {
+      nombrecategorias: "Electrodomésticos",
+      imagen:""
+    },
+    {
+      nombrecategorias: "videojuegos",
+      imagen:""
+    }
+  ]
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
